@@ -1,25 +1,27 @@
-import logo from './logo.svg';
-import './App.css';
+import './index.css';
+import { Form } from "./components/Form/Form";
+import { Form as FormClass } from "./class-components/Form";
+import { Count as CountClass } from "./class-components/Count";
+import {Count} from "./components/Count";
+import {Message} from "./components/Message";
 
-function App() {
+import {useState} from "react";
+
+export const App = () => {
+  const [text, setText] = useState('props message from parent');
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+      <div className="App">
+        <h3 style={{ color: 'red'}}>First Lesson GB</h3>
+        <Form />
+        <CountClass count={10}/>
+        <hr />
+        <Count />
+        <hr />
+        <FormClass/>
+        <hr />
+        <Message message={ text }/>
+      </div>
   );
 }
 
-export default App;
